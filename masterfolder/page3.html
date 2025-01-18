@@ -96,7 +96,7 @@
     <h2>Add a File</h2>
     <p>Select a file to upload and attach it to the course folder.</p>
     <form id="upload-form" enctype="multipart/form-data">
-      <input type="file" name="file" id="file" required>
+      <input type="file" name="file" id="file" required accept=".pdf">
       <button type="submit">Upload</button>
     </form>
     <a href="course-page.html" class="back-button">Back to Course</a>
@@ -109,6 +109,30 @@
 
       alert('File uploaded successfully!');
     });
+
+    async function fetchFiles() {
+    const response = await fetch('/files');
+    const files = await response.json();
+    const fileList = document.getElementById('fileList');
+    fileList.innerHTML = '';
+    files.forEach(file => {
+        const listItem = document.createElement('li');
+        listItem.innerHTML = `<a href="${file.path}"> download${file.name}</a>`;
+        fileList.appendChild(listItem);
+    });
+}
+
+window.onload = fetchFiles;
+
+document.getElementById('uploadForm').onsubmit = async function (e) {
+    e.preventDefault();
+    const formData = new FormData(this);
+    await fetch('/upload', { method: 'POST', body: formData });
+    alert('File uploaded successfully!');
+    fetchFiles();
+};
+    
   </script>
 </body>
+
 </html>
