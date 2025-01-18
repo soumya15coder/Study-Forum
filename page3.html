@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload Files - Study Guide</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: white;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    header {
+      background-color: purple;
+      color: white;
+      width: 100%;
+      padding: 1rem;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .container {
+      background: pink;
+      border-radius: 8px;
+      padding: 2rem;
+      width: 90%;
+      max-width: 500px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .container h2 {
+      color: purple;
+      margin-bottom: 1rem;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    form input[type="file"] {
+      margin: 1rem 0;
+      padding: 0.5rem;
+    }
+
+    form button {
+      background-color: black;
+      color: white;
+      border: none;
+      padding: 0.7rem 1.5rem;
+      border-radius: 4px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    form button:hover {
+      background-color: grey;
+    }
+
+    .back-button {
+      margin-top: 1rem;
+      text-decoration: none;
+      color: white;
+      background-color: #757575;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      font-size: 1rem;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+    }
+
+    .back-button:hover {
+      background-color: #616161;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    Upload Study Materials
+  </header>
+
+  <div class="container">
+    <h2>Add a File</h2>
+    <p>Select a file to upload and attach it to the course folder.</p>
+    <form id="upload-form" enctype="multipart/form-data">
+      <input type="file" name="file" id="file" required>
+      <button type="submit">Upload</button>
+    </form>
+    <a href="course-page.html" class="back-button">Back to Course</a>
+  </div>
+
+  <script>
+    document.getElementById('upload-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+
+      alert('File uploaded successfully!');
+    });
+  </script>
+</body>
+</html>
