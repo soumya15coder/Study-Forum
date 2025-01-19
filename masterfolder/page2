@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload Files - Study Guide</title>
+  <style>
+  
+  
+    body {
+      font-family: Arial;
+      background-color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      background-color: purple;
+      color: white;
+      width: 100%;
+      padding: 1rem;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+	.container {
+      background: pink;
+      padding: 2rem;
+      width: 100%;
+      max-width: 800px;
+      text-align: center;
+    }
+
+    .container h2 {
+      color: purple; 
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    form input[type="file"] {
+      margin: 1rem;
+    }
+
+    form button {
+      background-color: black;
+      color: white;
+      padding: 0.5rem 1.5rem;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    form button:hover {
+      background-color: grey;
+    }
+
+    .back-button {
+      margin-top: 1rem;
+      display: inline-block;
+      color: white;
+      font-size: 1rem;
+      background-color: grey;
+      padding: 0.5rem 0.8rem;
+    }
+
+    .back-button:hover {
+      background-color: black;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    Upload Study Materials
+  </header>
+
+  <div class="container">
+    <h2>Add a File</h2>
+    <p>Select a file to upload to the study guide folder.</p>
+    <form id="upload-form" enctype="multipart/form-data">
+      <input type="file" name="file" id="file" required>
+      <button type="submit">Upload</button>
+    </form>
+    <a href="course-page.html" class="back-button">Back to Course</a>
+  </div>
+
+  <script>
+    document.getElementById('upload-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+
+      alert('File uploaded successfully!');
+    });
+  </script>
+</body>
+</html>
