@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Study Materials</title>
+  <style>
+    body {
+      font-family: Arial;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: black;
+    }
+    .file-list {
+      margin: 20px auto;
+      max-width: 600px;
+    }
+    .file-list ul {
+      list-style: none;
+      padding: 0;
+    }
+    .file-list li {
+      margin: 10px 0;
+      background-color: purple;
+      padding: 15px;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+    }
+    .file-list a {
+      text-decoration: none;
+      color: white;
+    }
+    .file-list a:hover {
+      text-decoration: underline;
+    }
+    .add-button {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    .add-button a {
+      text-decoration: none;
+      font-size: 18px;
+      color: white;
+      background-color: purple;
+      padding: 10px 20px;
+      border-radius: 5px;
+      border: none;
+    }
+    .add-button a:hover {
+      background-color: pink;
+    }
+  </style>
+</head>
+<body>
+  <h1>Course Materials</h1>
+  <div class="file-list">
+    <h2>Available Study Guides:</h2>
+    <ul id="document-list">
+    </ul>
+  </div>
+  <div class="add-button">
+    <a href="upload.html">+ Add New Document</a>
+  </div>
+
+  <script>
+    const files = [
+      { name: "Math Study Guide 1", link: "https://drive.google.com/file/d/EXAMPLE_ID_1" },
+      { name: "Math Notes on Algebra", link: "https://drive.google.com/file/d/EXAMPLE_ID_2" },
+      { name: "English Essay Tips", link: "https://drive.google.com/file/d/EXAMPLE_ID_3" }
+    ];
+
+    
+    const documentList = document.getElementById('document-list');
+    files.forEach(file => {
+      const listItem = document.createElement('li');
+      const link = document.createElement('a');
+      link.href = file.link;
+      link.target = '_blank'; // Open in a new tab
+      link.textContent = file.name;
+
+      listItem.appendChild(link);
+      documentList.appendChild(listItem);
+    });
+  </script>
+</body>
+</html>
